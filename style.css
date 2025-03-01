@@ -1,0 +1,66 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #333; /*para identificar*/
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
+    padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+}
+
+header ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+header ul li{
+    display: inline;
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; /* Coloca os itens do menu em linha */
+}
+
+header ul li a:hover{
+    background-color: #555;
+}
+
+header img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    text-align: left;
+}
+
+#descricao{
+    margin: 20px;
+
+}
+
+#contato{
+    margin: 20px;
+    
+}
+
+#contato fieldset{
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;   /* Define a largura do fieldset */
+    height: 200px;  /* Define a altura do fieldset */
+    
+}
