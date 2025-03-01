@@ -5,26 +5,30 @@ body{
 }
 
 header{
-    background-color: #333; /*para identificar*/
     color: #fff;
     padding: 10px 0;
-    text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
-    padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+    align-items: flex-end;
+    background-image: url(img/logo.jpg);
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0; /* Remove qualquer margem do body */
+    position: relative;
 }
 
-header ul li a{
+#info{
     color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: inline-block;
-}
-
-header ul li{
-    display: inline;
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição para o centro exato */
 }
 
 header ul{
@@ -32,28 +36,34 @@ header ul{
     padding: 0;
     list-style: none;
     display: flex; /* Coloca os itens do menu em linha */
+    align-items: flex-start; /* Alinha o conteúdo no topo */
+    padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
+    padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+}
+
+header ul li{
+    display: inline;
+}
+
+
+header ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    
 }
 
 header ul li a:hover{
     background-color: #555;
 }
 
-header img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 10px;
-    text-align: left;
-}
-
 #descricao{
     margin: 20px;
-
 }
 
 #contato{
     margin: 20px;
-    
 }
 
 #contato fieldset{
@@ -62,5 +72,17 @@ header img{
     margin: 10px;
     width: 300px;   /* Define a largura do fieldset */
     height: 200px;  /* Define a altura do fieldset */
-    
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#contato{
+    text-align: center;
 }
