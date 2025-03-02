@@ -62,27 +62,49 @@ header ul li a:hover{
     margin: 20px;
 }
 
-#contato{
-    margin: 20px;
-}
-
-#contato fieldset{
-    border: 1px solid #333;
-    padding: 10px;
-    margin: 10px;
-    width: 300px;   /* Define a largura do fieldset */
-    height: 200px;  /* Define a altura do fieldset */
-}
-
 footer{
     background-color: #333;
     color: #fff;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+ 
 }
 
-#contato{
+#contato h2{
+    font-size: 28px;
+    text-align: center;
+}
+
+#contato fieldset{
+    border: 1px solid #c02121; /*usando para visualizar o fieldset */
+    padding: 10px;
+    margin: 10px;
+    width: 420px;   /* Define a largura do fieldset */
+    height: 280px;  /* Define a altura do fieldset */
+    font-size: 16px;
+}
+
+#contato input[type="text"]{
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+#contato input[type="email"]{
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+#contato textarea{
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+
+address{
+    font-style: normal;
+    font-weight: 600;
     text-align: center;
 }
