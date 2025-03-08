@@ -6,7 +6,7 @@ body{
 
 header{
     color: #fff;
-    padding: 10px 0;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,7 +22,7 @@ header{
 
 #info{
     color: #fff;
-    padding: 10px;
+    padding: 1%;
     text-align: center;
     align-self: center;
     position: absolute;
@@ -37,8 +37,8 @@ header ul{
     list-style: none;
     display: flex; /* Coloca os itens do menu em linha */
     align-items: flex-start; /* Alinha o conteúdo no topo */
-    padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
-    padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+    padding-left: 2%; /* Adiciona um pouco de espaço à esquerda */
+    padding-right: 2%; /* Adiciona um pouco de espaço à direita */
 }
 
 header ul li{
@@ -59,7 +59,7 @@ header ul li a:hover{
 }
 
 #descricao{
-    margin: 20px;
+    margin: 2%;
 }
 
 footer{
@@ -107,4 +107,10 @@ address{
     font-style: normal;
     font-weight: 600;
     text-align: center;
+}
+
+#carrosel{
+    width: 50%; /*Criar um tamanho para o carrosel @media */
+    margin: 0 auto;
+    margin-top: 3%;
 }
