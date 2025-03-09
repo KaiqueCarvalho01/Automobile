@@ -16,20 +16,49 @@
         </section>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#Produtos">Produtos</a></li>
-                <li> <a href="#Sobre">Sobre</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#Produtos">Noticias</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style=" padding: 10px 20px; padding-left: 2%; padding-right: 2%; margin-right: 7px;">
+                    Formula 1
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Calendário</a></li>
+                    <li><a class="dropdown-item" href="#">Tabela</a></li>
+                    <li><a class="dropdown-item" href="#">Notícias</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style=" padding: 10px 20px; padding-left: 2%; padding-right: 2%;margin-right: 7px;">
+                    Stock Car
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Calendário</a></li>
+                    <li><a class="dropdown-item" href="#">Tabela</a></li>
+                    <li><a class="dropdown-item" href="#">Notícias</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style=" padding: 10px 20px; padding-left: 2%; padding-right: 2%;margin-right: 7px;">
+                    Carros
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Novos Veículos</a></li>
+                    <li><a class="dropdown-item" href="#">Curiosidades</a></li>
+                    <li><a class="dropdown-item" href="#">Notícias</a></li>
+                  </ul>
+                </li>
                 <li><a href="#Contato">Contato</a></li>
             </ul>
         </nav>
     </header>
     <main> <!--Adicionar carroseis?-->
         <article id="carrosel">
-            <div id="carouselExampleCaptions" class="carousel slide" >
+            <div id="carouselCaptions" class="carousel slide" >
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -54,11 +83,11 @@
                     </div>
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -84,12 +113,31 @@
                 <li>Carro Modelo C</li>
             </ol>
         </article>
+        <article id="quadro-noticias">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                Column
+                <img src="img/news/mustang-tails-2428590.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="col">
+                Column
+                <img src="img/news/mustang-tails-2428590.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="col">
+                Column
+                <img src="img/news/mustang-tails-2428590.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+        </article>
+        
 
     </main>
     <footer>
         <section id="contato"> 
             <h2>Contato</h2>
-            
+            <form>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email@exemplo.com">
@@ -99,7 +147,7 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div> 
               <!--Modificar-->
-              <div class="col-12">
+              <div class="col-12" style="text-align: center; margin-bottom: 15px;">
                 <button class="btn btn-primary" type="submit">Submit form</button>
               </div>
             </form>

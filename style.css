@@ -70,37 +70,11 @@ footer{
     flex-direction: column;
     justify-content: center; /* Centraliza o conteúdo verticalmente */
     align-items: center; /* Centraliza o conteúdo horizontalmente */
- 
 }
 
 #contato h2{
     font-size: 28px;
     text-align: center;
-}
-
-#contato fieldset{
-    border: 1px solid #c02121; /*usando para visualizar o fieldset */
-    padding: 10px;
-    margin: 10px;
-    width: 420px;   /* Define a largura do fieldset */
-    height: 280px;  /* Define a altura do fieldset */
-    font-size: 16px;
-}
-
-#contato input[type="text"]{
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-#contato input[type="email"]{
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-#contato textarea{
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
 }
 
 address{
@@ -113,4 +87,8 @@ address{
     width: 50%; /*Criar um tamanho para o carrosel @media */
     margin: 0 auto;
     margin-top: 3%;
+}
+
+#quadro-noticias{
+    margin: 30px;
 }
