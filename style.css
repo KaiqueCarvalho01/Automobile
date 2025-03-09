@@ -67,20 +67,27 @@ footer{
     color: #fff;
     padding: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: space-between; /* Centraliza o conteúdo verticalmente */
     align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+#contato{
+    width: 100%; 
+    max-width: 300px;
+    margin-bottom: 10px; /* Espaço entre o contato e o address */
 }
 
 #contato h2{
     font-size: 28px;
     text-align: center;
+    margin-bottom: 10px; /* Reduz o espaço abaixo do título */
 }
 
 address{
     font-style: normal;
     font-weight: 600;
     text-align: center;
+    margin-top: 10px; /* Espaço acima do address */
 }
 
 #carrosel{
