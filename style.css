@@ -76,11 +76,20 @@ header ul li a:hover{
 
 
 
-
-
 #descricao{
-    margin: 2%;
+    margin: 1%;
+    text-align: center;
+    padding: 1%;
 }
+#descricao p{
+    font-size: 18px;
+    line-height: 1.5;
+    
+}
+#descricao img{
+    opacity: 0.5; /* Opacidade de 50% */
+}
+
 
 footer{
     background-color: #333;
@@ -110,12 +119,3 @@ address{
     margin-top: 10px; /* Espaço acima do address */
 }
 
-#carrosel{
-    width: 50%; /*Criar um tamanho para o carrosel @media */
-    margin: 0 auto;
-    margin-top: 3%;
-}
-
-#quadro-noticias{
-    margin: 30px;
-}
