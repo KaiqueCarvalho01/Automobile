@@ -1,52 +1,50 @@
-const form = document.querySelector('form')
-const nameInput = document.querySelector('#name')
-const emailInput = document.querySelector('#email')
-const cpfInput = document.querySelector('#cpf')
-const messageTextarea = document.querySelector('#message')
+// Seleciona os elementos do formulário
+const form = document.getElementById("form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const cpfInput = document.getElementById("cpf");
+const messageTextarea = document.getElementById("message");
 
-
-//console.log(form, nameInput, emailInput, messageTextarea, cpfInput)
-
+// Adiciona o evento de submit ao formulário
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
+    event.preventDefault(); // Impede o envio padrão do formulário
 
-    //Verifica se o nome está vazio
-    if(nameInput.value === "") {
-        alert("Por favor, preencha o seu nome");
-        return;
-    }
-
-    //Verifica se o email está preenchido e se é valido
-    if(emailInput.value === "" || !validateEmail(emailInput.value)) {
-        alert("Por favor, preencha o seu email corretamente");
-        return;
-    }
-    if(cpfInput.value === "") {
-        alert("Por favor, preencha o seu CPF");
-        return;
-    }
-    if(messageTextarea.value === "") {
-        alert("Por favor, preencha a mensagem");
+    // Verifica se o campo Nome está vazio
+    if (nameInput.value.trim() === "") {
+        alert("Por favor, preencha o seu nome.");
         return;
     }
 
-    
-    //Se todos os campos estiverem corretamente preenchidos, envie o form
-    form.submit();
+    // Verifica se o campo Email está vazio
+    if (emailInput.value.trim() === "") {
+        alert("Por favor, preencha o seu email.");
+        return;
+    }
+
+    // Verifica se o campo CPF está vazio
+    if (cpfInput.value.trim() === "") {
+        alert("Por favor, preencha o seu CPF.");
+        return;
+    }
+
+    // Valida o CPF
+    if (!validateCPF(cpfInput.value)) {
+        alert("CPF inválido! Por favor, insira um CPF válido.");
+        return;
+    }
+
+    // Verifica se o campo Mensagem está vazio
+    if (messageTextarea.value.trim() === "") {
+        alert("Por favor, preencha a mensagem.");
+        return;
+    }
+
+    // Se todos os campos estiverem preenchidos e válidos, exibe mensagem de sucesso
+    alert("Formulário enviado com sucesso!");
+    form.submit(); // Envia o formulário
 });
 
-//Função que valida o e-mail
-function validateEmail(email) {
-    const emailRegex = new RegExp(
-        /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    );
-    if (emailRegex.test(email)) {
-        return true;
-    }
-    return false;
-}
-
-//Função que valida o CPF
+// Função que valida o CPF
 function validateCPF(cpf) {
     // Remove caracteres não numéricos
     cpf = cpf.replace(/[^\d]/g, "");
@@ -55,12 +53,32 @@ function validateCPF(cpf) {
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
         return false;
     }
-    
-    const cpfRegex = new RegExp(
-        /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/
-    );
-    if (cpfRegex.test(cpf)) {
-        return true;
+
+    // Calcula o primeiro dígito verificador
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+        sum += parseInt(cpf[i]) * (10 - i);
     }
-    return false;
+    let firstVerifier = (sum * 10) % 11;
+    if (firstVerifier === 10 || firstVerifier === 11) {
+        firstVerifier = 0;
+    }
+    if (firstVerifier !== parseInt(cpf[9])) {
+        return false;
+    }
+
+    // Calcula o segundo dígito verificador
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+        sum += parseInt(cpf[i]) * (11 - i);
+    }
+    let secondVerifier = (sum * 10) % 11;
+    if (secondVerifier === 10 || secondVerifier === 11) {
+        secondVerifier = 0;
+    }
+    if (secondVerifier !== parseInt(cpf[10])) {
+        return false;
+    }
+
+    return true;
 }
