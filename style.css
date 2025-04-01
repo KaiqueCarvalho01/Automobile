@@ -11,7 +11,7 @@ header{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    background-image: url(img/logo.jpg);
+    background-image: url(./img/logo.jpg);
     background-size: cover; /* Faz a imagem cobrir toda a área */
     background-position: center; /* Centraliza a imagem no fundo */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -37,6 +37,7 @@ header{
     margin: 0;
     font-weight: 450;
 }
+
 
 header ul{
     margin: 0;
@@ -146,5 +147,33 @@ address{
     font-weight: 600;
     text-align: center;
     margin-top: 10px; /* Espaço acima do address */
+}
+
+#estoque-info{
+    color: #fff;
+    padding: 1%;
+    text-align: center;
+    align-self: center;
+    position: absolute;
+    top: 90%; 
+    left: 10%; 
+    transform: translate(-50%, -50%); 
+    font-weight: 400;
+}
+
+#header-estoque{
+    color: #fff;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url(./img/products/ferrari-about.jpg);
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0; /* Remove qualquer margem do body */
+    position: relative;
 }
 
