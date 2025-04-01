@@ -84,6 +84,13 @@ header ul li a:hover{
     height: 250px;
 }
 
+.products .card:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
 
 #descricao{
     margin: 1%;
@@ -125,15 +132,28 @@ footer{
     background-color: #333;
     color: #fff;
     padding: 10px;
-    display: flex;
+    /*display: flex; */
     justify-content: space-between; /* Centraliza o conteúdo verticalmente */
     align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+
+footer h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+#form{
+    width: 100%; 
+    max-width: 300px;
+    margin-bottom: 10px; /* Espaço entre o form e o address */
 }
 
 #contato{
     width: 100%; 
     max-width: 300px;
     margin-bottom: 10px; /* Espaço entre o contato e o address */
+    margin-left: 20px;
 }
 
 #contato h2{
@@ -177,3 +197,47 @@ address{
     position: relative;
 }
 
+.card-body p{
+    font-size: 18px;
+    line-height: 1.0; 
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.card-body .card-text {
+    font-size: 18px; /* Define o tamanho da fonte */
+    line-height: 1.1; /* Ajusta o espaçamento entre linhas */
+    color: #333; /* Define a cor do texto */
+    font-weight: 700; /* Deixa o texto em negrito */
+}
+
+#contato-info{
+    color: #fff;
+    padding: 1%;
+    text-align: center;
+    align-self: center;
+    position: absolute;
+    top: 90%; 
+    left: 10%; 
+    transform: translate(-50%, -50%); 
+    font-weight: 400;
+}
+
+#header-contato{
+    color: #fff;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url(./img/products/pagani-utopia.jpg);
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0; /* Remove qualquer margem do body */
+    position: relative;
+}
+
+
+/* Responsividade */
