@@ -20,6 +20,35 @@ header{
     position: relative;
 }
 
+.navbar .nav-link {
+    color: white !important; /* Define o texto em branco */
+    font-size: 18px; /* Define o tamanho da fonte */
+}
+.navbar .nav-item{
+    margin-right: 5px; /* Espaço entre os itens do menu */
+}
+
+.navbar-toggler {
+    border: 2px solid white; /* Adiciona uma borda branca */
+    border-radius: 10px; /* Arredonda os cantos */
+    padding: 5px; /* Ajusta o espaçamento interno */
+}
+
+.navbar-toggler-icon {
+    width: 50px; /* Ajusta o tamanho do ícone */
+    height: 50px;
+    background-color: rgb(255, 255, 255); /* Torna o ícone branco */
+}
+.navbar-collapse {
+    background-color: transparent; /* Fundo mais forte para o menu aberto */
+    font-weight: 500;
+}
+
+
+header ul li a:hover{
+    background-color: #555;
+}
+
 
 #info{
     color: #fff;
@@ -39,32 +68,6 @@ header{
 }
 
 
-header ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex; /* Coloca os itens do menu em linha */
-    align-items: flex-start; /* Alinha o conteúdo no topo */
-    padding-left: 2%; /* Adiciona um pouco de espaço à esquerda */
-    padding-right: 2%; /* Adiciona um pouco de espaço à direita */
-}
-
-header ul li{
-    display: inline;
-}
-
-
-header ul li a{
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: inline-block;
-    
-}
-
-header ul li a:hover{
-    background-color: #555;
-}
 
 .destaques h2{
     margin-top: 4%;
@@ -241,3 +244,39 @@ address{
 
 
 /* Responsividade */
+/* Estilo para telas menores (dispositivos móveis e tablets) */
+@media (max-width: 768px) {
+    #info h1{
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+
+    #info p {
+        font-size: 18px;  /* Diminui o tamanho do texto do parágrafo */
+    }
+    #estoque-info{
+        color: #fff;
+        padding: 1%;
+        top: 90%; 
+        left: 20%; 
+        font-weight: 400;
+    }
+    #contato-info{
+        color: #fff;
+        padding: 1%;
+        top: 90%; 
+        left: 20%; 
+        font-weight: 400;
+    }
+    .navbar .nav-link {
+        color: rgb(0, 0, 0) !important; /* Define o texto em branco */
+        font-size: 18px; /* Define o tamanho da fonte */
+    }
+    .navbar-collapse {
+        background-color: rgb(255, 255, 255); /* Fundo mais forte para o menu aberto */
+        font-weight: 700;
+
+    }
+    
+    
+}
