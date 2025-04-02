@@ -1,4 +1,4 @@
-const form = document.getElementById("proposta-form");
+const form = document.getElementById("form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const messageTextarea = document.getElementById("message");
@@ -37,9 +37,8 @@ form.addEventListener("submit", (event) => {
     }
 
     // Se todos os campos estiverem preenchidos e válidos, exibe mensagem de sucesso
-    alert("Proposta enviada com sucesso!");
+    alert("Formulário enviada com sucesso!");
     form.submit(); // Envia o formulário
-    window.location.href = "/./index.html";
 });
 
 

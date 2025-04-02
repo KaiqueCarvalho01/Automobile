@@ -1,5 +1,5 @@
 // Seleciona os elementos do formulário
-const form = document.getElementById("form");
+const form = document.getElementById("proposta-form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const cpfInput = document.getElementById("cpf");
@@ -51,8 +51,9 @@ form.addEventListener("submit", (event) => {
     }
 
     // Se todos os campos estiverem preenchidos e válidos, exibe mensagem de sucesso
-    alert("Formulário enviado com sucesso!");
+    alert("Proposta enviado com sucesso!");
     form.submit(); // Envia o formulário
+    window.location.href = "/./index.html";
 });
 
 //Função que valida o e-mail
