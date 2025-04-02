@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoques Automobile</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="/./js/scripts.js" defer></script>
@@ -56,6 +56,7 @@
                 <h2>ESTOQUE</h2>
             </div>
 
+            <!--Alternativa seria usar JavaScript para evitar repetição e poluição de código-->
             <div class="products">
                 <div class="container">
                     <div class="row">
@@ -89,7 +90,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <!--Criar um modal com formulário no futuro-->
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -98,11 +100,11 @@
                         <!-- Card 2 -->
                         <div class="col-md-4 col-sm-6 mb-3">
                             <div class="card" data-bs-toggle="modal" data-bs-target="#modalMcLaren" style="cursor: pointer;">
-                                <img src="/./img/products/aspiration-4927227.jpg" class="card-img-top" alt="Imagem McLaren">
+                                <img src="/./img/products/aspiration-4927227.jpg" class="card-img-top" alt="Imagem Lotus Evora">
                                 <div class="card-body">
-                                    <p class="card-text">MCLAREN</p>
-                                    <p>2010/2011 - 0 KM</p>
-                                    <p>R$950.000,00</p>
+                                    <p class="card-text">LOTUS Evora</p>
+                                    <p>2018/2018 - 30.000 KM</p>
+                                    <p>R$650.000,00</p>
                                 </div>
                             </div>
                         </div>
@@ -118,14 +120,14 @@
                                     <div class="modal-body">
                                         <p>Detalhes do carro:</p>
                                         <ul>
-                                            <li>Ano: 2010/2011</li>
-                                            <li>Quilometragem: 0 KM</li>
-                                            <li>Preço: R$950.000,00</li>
+                                            <li>Ano: 2018/2018</li>
+                                            <li>Quilometragem: 30.000 KM</li>
+                                            <li>Preço: R$650.000,00</li>
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +162,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +198,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +233,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -242,6 +244,8 @@
                                 <img src="/./img/products/pagani-utopia.jpg" class="card-img-top" alt="Pagani Utopia">
                                 <div class="card-body">
                                     <p class="card-text">PAGANI Utopia</p>
+                                    <p>2022/2022 - 0 KM</p>
+                                    <p>R$ 60.000.000,00</p>
                                 </div>
                             </div>
                         </div>
@@ -257,14 +261,14 @@
                                     <div class="modal-body">
                                         <p>Detalhes do carro:</p>
                                         <ul>
-                                            <li>Ano: 2023/2023</li>
+                                            <li>Ano: 2022/2022</li>
                                             <li>Quilometragem: 0 KM</li>
-                                            <li>Preço: R$17.000.000,00</li>
+                                            <li>Preço: R$60.000.000,00</li>
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -275,6 +279,8 @@
                                 <img src="/./img/products/audi-rs6-avant.jpg" class="card-img-top" alt="Audi RS6 Avant">
                                 <div class="card-body">
                                     <p class="card-text">AUDI RS6 Avant</p>
+                                    <p>2024/2024 - 5.000 KM</p>
+                                    <p>R$ 1.200.000,00</p>
                                 </div>
                             </div>
                         </div>
@@ -290,14 +296,14 @@
                                     <div class="modal-body">
                                         <p>Detalhes do carro:</p>
                                         <ul>
-                                            <li>Ano: 2022/2022</li>
+                                            <li>Ano: 2024/2024</li>
                                             <li>Quilometragem: 5.000 KM</li>
                                             <li>Preço: R$1.200.000,00</li>
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -308,6 +314,8 @@
                                 <img src="/./img/products/ferrari-296.jpg" class="card-img-top" alt="Ferrari 296 GTB">
                                 <div class="card-body">
                                     <p class="card-text">FERRARI 296 GTB</p>
+                                    <p>2024/2024 - 0 KM</p>
+                                    <p>R$ 3.500.000,00</p>
                                 </div>
                             </div>
                         </div>
@@ -323,14 +331,14 @@
                                     <div class="modal-body">
                                         <p>Detalhes do carro:</p>
                                         <ul>
-                                            <li>Ano: 2023/2023</li>
+                                            <li>Ano: 2024/2024</li>
                                             <li>Quilometragem: 0 KM</li>
                                             <li>Preço: R$3.500.000,00</li>
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -341,6 +349,8 @@
                                 <img src="/./img/products/lamborghini-revuelto.jpg" class="card-img-top" alt="Lamborghini Revuelto">
                                 <div class="card-body">
                                     <p class="card-text">LAMBORGHINI Revuelto</p>
+                                    <p>2023/2023 - 0 KM</p>
+                                    <p>R$7.500.000,00</p>
                                 </div>
                             </div>
                         </div>
@@ -358,18 +368,16 @@
                                         <ul>
                                             <li>Ano: 2023/2023</li>
                                             <li>Quilometragem: 0 KM</li>
-                                            <li>Preço: R$5.000.000,00</li>
+                                            <li>Preço: R$7.500.000,00</li>
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Comprar</button>
+                                        <a href="./proposta.html"><button type="button" class="btn btn-primary">Proposta</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div> <!-- Fecha .row -->
                 </div> <!-- Fecha .container -->
             </div> <!-- Fecha .products -->

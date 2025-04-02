@@ -77,63 +77,222 @@
           <h2>ÚLTIMOS DESTAQUES</h2>
         </div>
         
-        <div class="products">
+          <!--Alternativa seria usar JavaScript para evitar repetição e poluição de código-->
+          <div class="products">
+              <div class="container">
+                  <div class="row">
+                      <!-- Card 1 -->
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalLamborghini" style="cursor: pointer;">
+                              <img src="/./img/products/lamborghini.jpg" class="card-img-top" alt="Imagem Lamborghini">
+                              <div class="card-body">
+                                  <p class="card-text">LAMBORGHINI Aventador</p>
+                                  <p>2022/2022 - 300 KM</p>
+                                  <p>R$4.500.000,00</p>
+                              </div>
+                          </div>
+                    </div>
 
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                  <img src="./img/products/lamborghini.jpg" class="card-img-top" alt="Imagem lamborghini">
-                  <div class="card-body">
-                    <p class="card-text">Lamborghini</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
-        
-              <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                  <img src="./img/products/aspiration-4927227.jpg" class="card-img-top" alt="Imagem McLaren">
-                  <div class="card-body">
-                    <p class="card-text">McLaren</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
-        
-              <div class="col-md-4 col-sm-12 mb-3">
-                <div class="card">
-                  <img src="./img/products/mustang-tails-2428590.jpg" class="card-img-top" alt="Mustang 1970">
-                  <div class="card-body">
-                    <p class="card-text">Mustang 1970</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
-        
-              <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                  <img src="./img/products/ferrari-about.jpg" class="card-img-top" alt="Ferrari 458 Italia">
-                  <div class="card-body">
-                    <p class="card-text">Ferrari 458 Italia</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
-        
-              <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                  <img src="./img/products/mustang.jpg" class="card-img-top" alt="Ford Mustang">
-                  <div class="card-body">
-                    <p class="card-text">Ford Mustang</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
-        
-              <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                  <img src="./img/products/pagani-utopia.jpg" class="card-img-top" alt="Pagani Utopia">
-                  <div class="card-body">
-                    <p class="card-text">Pagani Utopia</p>
-                  </div>
-                </div> <!-- Fecha .card -->
-              </div> <!-- Fecha .col-md-4 -->
+                      <!-- Modal para Lamborghini -->
+                      <div class="modal fade" id="modalLamborghini" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLamborghiniLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalLamborghiniLabel">LAMBORGHINI Aventador</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 2022/2022</li>
+                                          <li>Quilometragem: 300 KM</li>
+                                          <li>Preço: R$4.500.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- Card 2 -->
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalMcLaren" style="cursor: pointer;">
+                              <img src="/./img/products/aspiration-4927227.jpg" class="card-img-top" alt="Imagem Lotus Evora">
+                              <div class="card-body">
+                                  <p class="card-text">LOTUS Evora</p>
+                                  <p>2018/2018 - 30.000 KM</p>
+                                  <p>R$650.000,00</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- Modal para McLaren -->
+                      <div class="modal fade" id="modalMcLaren" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMcLarenLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalMcLarenLabel">MCLAREN</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 2018/2018</li>
+                                          <li>Quilometragem: 30.000 KM</li>
+                                          <li>Preço: R$650.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalMustang" style="cursor: pointer;">
+                              <img src="/./img/products/mustang-tails-2428590.jpg" class="card-img-top" alt="Mustang 1970">
+                              <div class="card-body">
+                                  <p class="card-text">FORD Mustang</p>
+                                  <p>1970/1970 - 20.000 KM</p>
+                                  <p>R$250.000,00</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Modal para Mustang -->
+                      <div class="modal fade" id="modalMustang" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMustangLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalMustangLabel">FORD Mustang</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 1970/1970</li>
+                                          <li>Quilometragem: 20.000 KM</li>
+                                          <li>Preço: R$250.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalFerrari458" style="cursor: pointer;">
+                              <img src="/./img/products/ferrari-about.jpg" class="card-img-top" alt="Ferrari 458 Italia">
+                              <div class="card-body">
+                                  <p class="card-text">FERRARI 458 Italia</p>
+                                  <p>2011/2011 - 15.000 KM</p>
+                                  <p>R$2.100.000,00</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Modal para Ferrari 458 Italia -->
+                      <div class="modal fade" id="modalFerrari458" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFerrari458Label" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalFerrari458Label">FERRARI 458 Italia</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 2011/2011</li>
+                                          <li>Quilometragem: 15.000 KM</li>
+                                          <li>Preço: R$2.100.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalMustang2016" style="cursor: pointer;">
+                              <img src="/./img/products/mustang.jpg" class="card-img-top" alt="Ford Mustang">
+                              <div class="card-body">
+                                  <p class="card-text">FORD Mustang</p>
+                                  <p>2016/2016 - 15.000 KM</p>
+                                  <p>R$360.000,00</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Modal para Ford Mustang -->
+                      <div class="modal fade" id="modalMustang2016" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMustang2016Label" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalMustang2016Label">FORD Mustang</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 2016/2016</li>
+                                          <li>Quilometragem: 15.000 KM</li>
+                                          <li>Preço: R$360.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 col-sm-6 mb-3">
+                          <div class="card" data-bs-toggle="modal" data-bs-target="#modalPaganiUtopia" style="cursor: pointer;">
+                              <img src="/./img/products/pagani-utopia.jpg" class="card-img-top" alt="Pagani Utopia">
+                              <div class="card-body">
+                                  <p class="card-text">PAGANI Utopia</p>
+                                  <p>2022/2022 - 0 KM</p>
+                                  <p>R$ 60.000.000,00</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <!-- Modal para Pagani Utopia -->
+                      <div class="modal fade" id="modalPaganiUtopia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPaganiUtopiaLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="modalPaganiUtopiaLabel">PAGANI Utopia</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Detalhes do carro:</p>
+                                      <ul>
+                                          <li>Ano: 2022/2022</li>
+                                          <li>Quilometragem: 0 KM</li>
+                                          <li>Preço: R$60.000.000,00</li>
+                                      </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      <button type="button" class="btn btn-primary">Comprar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
         
             </div> <!-- Fecha .row -->
           </div> <!-- Fecha .container -->
@@ -154,21 +313,6 @@
           </div>
             
         </article>
-        <h3>Principais Características</h3>
-        <ul>
-            <li>Design aerodinâmico</li>
-            <li>Consumo de combustível otimizado</li>
-            <li>Segurança com airbags e sensores de colisão</li>
-            <li>Sistemas de navegação e conectividade</li>
-        </ul>
-
-        <h3>Modelos Populares</h3>
-        <ol>
-            <li>Carro Modelo A</li>
-            <li>Carro Modelo B</li>
-            <li>Carro Modelo C</li>
-        </ol>
-
     </main>
 
     <footer>
