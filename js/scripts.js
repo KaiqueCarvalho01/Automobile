@@ -4,6 +4,7 @@ const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const cpfInput = document.getElementById("cpf");
 const messageTextarea = document.getElementById("message");
+const telefoneInput = document.getElementById("telefone");
 
 // Adiciona o evento de submit ao formulário
 form.addEventListener("submit", (event) => {
@@ -18,6 +19,16 @@ form.addEventListener("submit", (event) => {
     // Verifica se o campo Email está vazio
     if (emailInput.value.trim() === "") {
         alert("Por favor, preencha o seu email.");
+        return;
+    }
+
+    if(telefoneInput.value.trim() === ""){
+        alert("Por favor, preencha o seu telefone.");
+        return;
+    }
+    // Valida o telefone
+    if (!validateTelefone(telefoneInput.value)) {
+        alert("Telefone inválido! Por favor, insira um telefone válido.");
         return;
     }
 
@@ -81,4 +92,12 @@ function validateCPF(cpf) {
     }
 
     return true;
+}
+
+function validateTelefone(telefone) {
+    // Remove caracteres não numéricos
+    telefone = telefone.replace(/[^\d]/g, "");
+
+    // Verifica se o telefone tem 10 ou 11 dígitos (considerando DDD)
+    return telefone.length === 10 || telefone.length === 11;
 }
