@@ -22,7 +22,7 @@ header{
 
 .navbar .nav-link {
     color: white !important; /* Define o texto em branco */
-    font-size: 18px; /* Define o tamanho da fonte */
+    font-size: 18px; 
 }
 .navbar .nav-item{
     margin-right: 5px; /* Espaço entre os itens do menu */
@@ -40,7 +40,7 @@ header{
     background-color: rgb(255, 255, 255); /* Torna o ícone branco */
 }
 .navbar-collapse {
-    background-color: transparent; /* Fundo mais forte para o menu aberto */
+    background-color: transparent; 
     font-weight: 500;
 }
 
@@ -82,7 +82,7 @@ header ul li a:hover{
     margin: 2%;
 }
 
-/* Padroniza o tamanho das imagens */
+
 .products img{
     height: 250px;
 }
@@ -102,7 +102,7 @@ header ul li a:hover{
 }
 #descricao h3{
     font-size: 28px;
-    margin-bottom: 10px; /* Reduz o espaço abaixo do título */
+    margin-bottom: 10px; 
     text-align: center;
     
 }
@@ -113,16 +113,16 @@ header ul li a:hover{
 }
 
 #descricao .card {
-    width: 100%; /* Ajusta a largura do card */
-    max-width: 1920px; /* Define um limite máximo para a largura */
-    height: auto; /* Ajusta a altura automaticamente */
-    margin: 0 auto; /* Centraliza o card horizontalmente */
+    width: 100%; 
+    max-width: 1920px; 
+    height: auto; 
+    margin: 0 auto; 
 }
 
 #descricao .card-img {
-    height: 85vh; /* Define a altura da imagem */
-    object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
-    opacity: 0.5; /* Opacidade de 50% */
+    height: 85vh; 
+    object-fit: cover; 
+    opacity: 0.5; 
 }
 
 #descricao .card-img-overlay {
@@ -149,27 +149,27 @@ footer h2{
 #form{
     width: 100%; 
     max-width: 300px;
-    margin-bottom: 10px; /* Espaço entre o form e o address */
+    margin-bottom: 10px; 
 }
 
 #contato{
     width: 100%; 
     max-width: 300px;
-    margin-bottom: 10px; /* Espaço entre o contato e o address */
+    margin-bottom: 10px; 
     margin-left: 20px;
 }
 
 #contato h2{
     font-size: 28px;
     text-align: center;
-    margin-bottom: 10px; /* Reduz o espaço abaixo do título */
+    margin-bottom: 10px; 
 }
 
 address{
     font-style: normal;
     font-weight: 600;
     text-align: center;
-    margin-top: 10px; /* Espaço acima do address */
+    margin-top: 10px; 
 }
 
 #estoque-info{
@@ -192,11 +192,11 @@ address{
     justify-content: space-between;
     align-items: flex-end;
     background-image: url(./img/products/ferrari-about.jpg);
-    background-size: cover; /* Faz a imagem cobrir toda a área */
-    background-position: center; /* Centraliza a imagem no fundo */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
-    margin: 0; /* Remove qualquer margem do body */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0; 
     position: relative;
 }
 
@@ -208,10 +208,10 @@ address{
 }
 
 .card-body .card-text {
-    font-size: 18px; /* Define o tamanho da fonte */
-    line-height: 1.1; /* Ajusta o espaçamento entre linhas */
-    color: #333; /* Define a cor do texto */
-    font-weight: 700; /* Deixa o texto em negrito */
+    font-size: 18px; 
+    line-height: 1.1; 
+    color: #333; 
+    font-weight: 700; 
 }
 
 #contato-info{
@@ -234,11 +234,11 @@ address{
     justify-content: space-between;
     align-items: flex-end;
     background-image: url(./img/products/pagani-utopia.jpg);
-    background-size: cover; /* Faz a imagem cobrir toda a área */
-    background-position: center; /* Centraliza a imagem no fundo */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
-    margin: 0; /* Remove qualquer margem do body */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0; 
     position: relative;
 }
 
@@ -252,7 +252,7 @@ address{
     }
 
     #info p {
-        font-size: 18px;  /* Diminui o tamanho do texto do parágrafo */
+        font-size: 18px; 
     }
     #estoque-info{
         color: #fff;
@@ -269,11 +269,11 @@ address{
         font-weight: 400;
     }
     .navbar .nav-link {
-        color: rgb(0, 0, 0) !important; /* Define o texto em branco */
-        font-size: 18px; /* Define o tamanho da fonte */
+        color: rgb(0, 0, 0) !important; 
+        font-size: 18px; 
     }
     .navbar-collapse {
-        background-color: rgb(255, 255, 255); /* Fundo mais forte para o menu aberto */
+        background-color: rgb(255, 255, 255); 
         font-weight: 700;
 
     }
