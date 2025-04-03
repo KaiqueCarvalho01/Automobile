@@ -1,4 +1,3 @@
-// Seleciona os elementos do formulário
 const form = document.getElementById("proposta-form");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
