@@ -1,0 +1,23 @@
+{
+  "name": "automobile",
+  "version": "1.0.0",
+  "description": "Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**, utilizando tecnologias como **HTML**, **CSS**, **JavaScript** e **Bootstrap**.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaiqueCarvalho01/Automobile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaiqueCarvalho01/Automobile/issues"
+  },
+  "homepage": "https://github.com/KaiqueCarvalho01/Automobile#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
