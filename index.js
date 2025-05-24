@@ -3,26 +3,39 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
-// recriando __dirname manualmente
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
 
-// Serve arquivos estáticos da pasta views
-app.use(express.static(path.join(__dirname, "views")));
+app.set("view engine", "ejs"); // Configura o EJS como template engine
+app.use(express.static("public")); // Serve arquivos estáticos da pasta public
 
-app.set("view engine", "ejs");
-
+// Rotas
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.render("index"); // Renderiza index.ejs
+});
+
+app.get("/login", (req, res) => {
+  res.render("login"); // Renderiza login.ejs
+});
+
+app.get("/contato", (req, res) => {
+  res.render("contato"); // Renderiza contato.ejs
+});
+
+app.get("/estoques", (req, res) => {
+  res.render("estoques"); // Renderiza estoques.ejs
+});
+
+app.get("/proposta", (req, res) => {
+  res.render("proposta"); // Renderiza proposta.ejs
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+  console.log(`Servidor rodando na porta: ${PORT}`);
 });
 
-//
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
