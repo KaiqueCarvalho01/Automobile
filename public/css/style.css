@@ -11,7 +11,7 @@ header{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    background-image: url(./img/logo.jpg);
+    background-image: url(/img/logo.jpg);
     background-size: cover; /* Faz a imagem cobrir toda a área */
     background-position: center; /* Centraliza a imagem no fundo */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -191,7 +191,7 @@ address{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    background-image: url(./img/products/ferrari-about.jpg);
+    background-image: url(/img/products/ferrari-about.jpg);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -233,7 +233,7 @@ address{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    background-image: url(./img/products/pagani-utopia.jpg);
+    background-image: url(/img/products/pagani-utopia.jpg);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
