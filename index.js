@@ -32,10 +32,38 @@ app.get("/proposta", (req, res) => {
   res.render("proposta"); // Renderiza proposta.ejs
 });
 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+ app.post("/enviar-contato", (req, res) => {
+        let nome = req.body.name;
+        let email = req.body.email;
+        let telefone = req.body.telefone;
+        let mensagem = req.body.message;
+
+        // Aqui você processaria os dados (salvaria no banco de dados, enviaria um email, etc.)
+        console.log(`Formulário de Contato Recebido: Nome: ${nome}, Email: ${email}, Telefone: ${telefone}, Mensagem: ${mensagem}`);
+
+        res.send("Formulário de Contato Recebido com Sucesso!");
+    });
+
+    app.post("/enviar-proposta", (req, res) => {
+        let nome = req.body.name;
+        let email = req.body.email;
+        let telefone = req.body.telefone;
+        let cpf = req.body.cpf;
+        let mensagem = req.body.message;
+
+        // Aqui você processaria os dados (salvaria no banco de dados, etc.)
+        console.log(`Formulário de Proposta Recebido: Nome: ${nome}, Email: ${email}, Telefone: ${telefone}, CPF: ${cpf}, Mensagem: ${mensagem}`);
+
+        res.send("Formulário de Proposta Recebido com Sucesso!");
+    });
+
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta: ${PORT}`);
 });
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
