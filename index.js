@@ -1,4 +1,5 @@
 import express from "express";
+import db from './config/database.js';
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -27,9 +28,7 @@ app.get("/login", (req, res) => {
   res.render("login"); // Renderiza login.ejs
 });
 
-app.get("/contato", (req, res) => {
-  res.render("contato"); // Renderiza contato.ejs
-});
+app.use('/contato', contatoRoutes); // Diz ao app para usar o contatoRoutes para qualquer caminho que comece com /contato
 
 app.get("/estoques", (req, res) => {
   res.render("estoques"); // Renderiza estoques.ejs

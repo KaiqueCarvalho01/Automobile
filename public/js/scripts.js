@@ -52,7 +52,7 @@ form.addEventListener("submit", (event) => {
     // Se todos os campos estiverem preenchidos e válidos, exibe mensagem de sucesso
     alert("Proposta enviado com sucesso!");
     form.submit(); // Envia o formulário
-    window.location.href = "/";
+  
 });
 
 //Função que valida o e-mail
