@@ -19,6 +19,7 @@
   "homepage": "https://github.com/KaiqueCarvalho01/Automobile#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
   }
 }
