@@ -12,25 +12,39 @@
         
         <section id="contato"> 
               <h2>Contato</h2>
-              <form id="form" method="POST" action="/enviar-contato">
+              <%# Verifica se a variável mensagemSucesso foi passada pelo controller %>
+              <% if (typeof mensagemSucesso !== 'undefined' && mensagemSucesso) { %>
+                <div style="padding: 10px; margin-bottom: 15px; background-color: lightgreen; border: 1px solid green; color: darkgreen;">
+                  <%= mensagemSucesso %>
+                </div>
+              <% } %>
+
+              <%# Verifica se a variável mensagemErro foi passada pelo controller %>
+              <% if (typeof mensagemErro !== 'undefined' && mensagemErro) { %>
+                <div style="padding: 10px; margin-bottom: 15px; background-color: lightcoral; border: 1px solid red; color: darkred;">
+                  <%= mensagemErro %>
+                </div>
+              <% } %>
+
+              <form action="/contato/enviar" id="form" method="POST">
               <div class="mb-3">
                   <label for="name" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="name" placeholder="nome">
+                  <input type="text" class="form-control" id="name" placeholder="nome" required>
               </div>
   
               <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="email@exemplo.com">
+                  <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" required>
               </div>
 
               <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="telefone" placeholder="119XXXXYYYY" maxlength="11">
+                <input type="text" class="form-control" id="telefone" placeholder="119XXXXYYYY" maxlength="11" required>
               </div>
   
               <div class="mb-3">
                 <label for="message" class="form-label">Mensagem</label>
-                <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+                <textarea name="message" class="form-control" id="message" rows="3" required></textarea>
               </div> 
 
               <div class="col-12" style="text-align: center; margin-bottom: 15px;">
