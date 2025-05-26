@@ -73,15 +73,14 @@ export const enviarProposta = async (req, res) => { // Adicionado async
     });
 
   } catch (error) {
-    // Em caso de outros erros, repassar os dados
-    const { name, email, telefone, cpf, message } = req.body; // Pega os dados novamente se o erro for depois da desestruturação
+    const bodyData = req.body || {}; // Garante que bodyData é um objeto
     res.status(500).render('proposta', {
       mensagemErro: 'Erro ao enviar sua proposta.',
-      name: name,
-      email: email,
-      telefone: telefone,
-      cpf: cpf,
-      message: message
+      name: bodyData.name,
+      email: bodyData.email,
+      telefone: bodyData.telefone,
+      cpf: bodyData.cpf,
+      message: bodyData.message
     });
   }
 };
