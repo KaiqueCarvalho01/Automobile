@@ -1,6 +1,6 @@
 # 🚗 Automobile
 
-Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**, utilizando tecnologias como **HTML**, **CSS**, **JavaScript** e **Bootstrap**.
+Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**. A aplicação utiliza tecnologias como Node.js, Express.js, EJS, SQLite3, HTML, CSS, JavaScript e Bootstrap para oferecer uma interface interativa e funcional.
 
 ## 🔧 Tecnologias Utilizadas
 
@@ -17,10 +17,34 @@ Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. 
 ## Pré-requisitos 📋
 Antes de começar, certifique-se de ter instalado em sua máquina:
 * Node.js (versão v22.15.0)
+```
+node -v
+```
 * NPM (geralmente instalado com o Node.js)
 
 ---
 
+## 📥 Instalação
+
+1. Clone este repositório:
+
+```
+git clone https://github.com/KaiqueCarvalho01/Automobile.git
+```
+
+2. Navegue até o diretório do projeto:
+
+```
+cd Automobile
+```
+
+3. Instale as dependências:
+
+```
+npm install
+```
+
+---
 ## 🚀 Como Rodar o Projeto
 
 Para visualizar corretamente o site, é necessário rodá-lo em um **servidor local**, pois algumas funcionalidades em JavaScript e o roteamento entre páginas podem não funcionar abrindo os arquivos diretamente no navegador.
@@ -32,11 +56,26 @@ node index.js
 Após o servidor ser iniciado com sucesso, abra seu navegador de preferência e acesse http://localhost:3000
 
 
-### 📦 Requisitos
+## 📦 Requisitos
 
 - Editor de código recomendado: [Visual Studio Code](https://code.visualstudio.com/)
 
 ---
+
+## 📂 Estrutura do Projeto
+
+* `controllers/`: Lógica de controle das rotas
+
+* `routes/`: Definição das rotas da aplicação
+
+* `views/`: Arquivos EJS para renderização das páginas
+
+* `public/`: Arquivos estáticos (CSS, JavaScript)
+
+* `config/`: Configurações do banco de dados e do servidor
+
+---
+
 ### Contribuição 🤝
 Contribuições são bem-vindas! Se você deseja contribuir para este projeto, por favor:
 
