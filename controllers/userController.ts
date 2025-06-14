@@ -1,56 +1,50 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import db from '../config/db';
 import { IUser } from '../interfaces/User.interface';
-import { AuthRequest } from '../middleware/authMiddleware'; // Importa a request autenticada
 
-// @desc    Registrar um novo usuário
-// @route   POST /api/users
-// @access  Public
-export const registerUser = async (req: AuthRequest, res: Response) => {
-  const { name, email, password } = req.body;
+export const registerUser = async (req: Request, res: Response) => {
+  // Capturamos todos os campos do formulário
+  const { name, email, cpf, telefone, password, confirmPassword } = req.body;
 
-  // Validação simples
-  if (!name || !email || !password) {
-    res.status(400).json({ message: 'Por favor, adicione todos os campos' });
-    return; 
+  // --- VALIDAÇÕES ---
+  if (!name || !email || !password || !confirmPassword) {
+    return res.render('register', { mensagemErro: 'Por favor, preencha todos os campos obrigatórios.' });
   }
 
-  // Verifica se o usuário já existe
-  const userExistsSql = `SELECT * FROM users WHERE email = ?`;
-  db.get(userExistsSql, [email], async (err: Error | null, row: IUser) => {
+  if (password !== confirmPassword) {
+    return res.render('register', { mensagemErro: 'As senhas não coincidem.' });
+  }
+
+  // --- LÓGICA DO BANCO ---
+  const userExistsSql = `SELECT * FROM users WHERE email = ? OR cpf = ?`;
+  db.get(userExistsSql, [email, cpf], async (err: Error | null, row: IUser) => {
     if (err) {
-        res.status(500).json({ message: 'Erro ao criar usuário' });
-        return;
+      return res.render('register', { mensagemErro: 'Erro no servidor. Tente novamente.' });
     }
     if (row) {
-      res.status(400).json({ message: 'Usuário já existe' });
-      return; // Para o fluxo aqui dentro
+      return res.render('register', { mensagemErro: 'Este e-mail ou CPF já está em uso.' });
     }
 
-    // Criptografa a senha
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Cria o usuário
-    const insertSql = `INSERT INTO users (name, email, password) VALUES (?, ?, ?)`;
-    db.run(insertSql, [name, email, hashedPassword], function (err: Error | null) {
+    const insertSql = `INSERT INTO users (name, email, cpf, telefone, password) VALUES (?, ?, ?, ?, ?)`;
+    db.run(insertSql, [name, email, cpf, telefone, hashedPassword], function (err: Error | null) {
       if (err) {
-        return res.status(500).json({ message: 'Erro ao criar usuário' });
+        return res.render('register', { mensagemErro: 'Erro ao criar o usuário.' });
       }
-      res.status(201).json({
-        id: this.lastID,
-        name,
-        email,
-      });
+      res.redirect('/login');
     });
   });
 };
 
-// @desc    Obter informações do usuário logado
-// @route   GET /api/users/me
-// @access  Private
-export const getMe = (req: AuthRequest, res: Response) => {
-    // O usuário é anexado à requisição pelo middleware 'protect'
-    res.status(200).json(req.user);
+// A função getMe permanece a mesma para a API
+export const getMe = (req: Request, res: Response) => {
+    const user = (req as any).user;
+    if (user) {
+        res.status(200).json(user);
+    } else {
+        res.status(401).json({ message: 'Não autorizado' });
+    }
 };

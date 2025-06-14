@@ -1,56 +1,55 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import db from '../config/db';
 import { IUser } from '../interfaces/User.interface';
 
-// Função para gerar o token JWT
-const generateToken = (id: number) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET as string, {
-    expiresIn: '30d',
-  });
-};
-
 // @desc    Autenticar (fazer login) um usuário
 // @route   POST /api/auth/login
-// @access  Public
 export const loginUser = (req: Request, res: Response) => {
   const { email, password } = req.body;
   const sql = `SELECT * FROM users WHERE email = ?`;
 
   db.get(sql, [email], async (err: Error | null, user: IUser) => {
     if (err) {
-      res.status(500).json({ message: 'Erro no servidor' });
-      return;
+      // CORREÇÃO: Renderiza a página de login com a mensagem de erro correta
+      return res.render('login', { mensagemErro: 'Erro no servidor. Tente novamente.' });
     }
     if (!user) {
-      res.status(400).json({ message: 'Credenciais inválidas' });
-      return;
+      return res.render('login', { mensagemErro: 'Credenciais inválidas.' });
     }
 
-    // Compara a senha enviada com a senha hasheada no banco
     const isMatch = await bcrypt.compare(password, user.password as string);
 
     if (isMatch) {
-      // *** NOVA PARTE: CRIAR A SESSÃO DO USUÁRIO ***
-      // Guardamos na sessão o usuário sem a senha.
       const userSessionData = {
         id: user.id,
         name: user.name,
-        email: user.email
+        email: user.email,
       };
-      // A biblioteca express-session adiciona a propriedade 'session' ao objeto 'req'
+      // Guarda os dados do usuário na sessão
       (req as any).session.user = userSessionData;
       
-      // Retornamos o JSON com o token, como antes.
-      res.json({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        token: generateToken(user.id), // Gera e envia o token
-      });
+      // SUCESSO: Redireciona para a página inicial
+      return res.redirect('/');
     } else {
-      res.status(400).json({ message: 'Credenciais inválidas' });
+      return res.render('login', { mensagemErro: 'Credenciais inválidas.' });
     }
+  });
+};
+
+// @desc    Fazer logout do usuário
+// @route   GET /api/auth/logout
+export const logoutUser = (req: Request, res: Response) => {
+  // Destrói a sessão do usuário
+  (req as any).session.destroy((err: Error) => {
+    if (err) {
+      console.log("Erro ao fazer logout:", err);
+      // Mesmo com erro, tentamos renderizar a página de login com uma mensagem de erro
+      return res.render('login', { mensagemErro: 'Ocorreu um erro ao sair.' });
+    }
+    
+    // CORREÇÃO: Renderiza a página de login com uma mensagem de sucesso
+    res.clearCookie('connect.sid');
+    res.render('login', { mensagemSucesso: 'Você saiu da sua conta com sucesso.' });
   });
 };

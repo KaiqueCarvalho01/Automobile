@@ -39,7 +39,7 @@ const SQLiteStore = connectSqlite3(session);
 app.use(session({
   store: new SQLiteStore({
     db: 'sessions.sqlite',
-    dir: './config', // Usando a pasta config que você já tem
+    dir: './config',
     table: 'sessions'
   }) as session.Store,
   secret: 'sua-chave-secreta-muito-forte',
@@ -58,8 +58,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.get('/', (req, res) => res.render('index'));
 app.get('/login', (req, res) => res.render('login'));
 app.get('/estoques', (req, res) => res.render('estoques'));
-// Adicionando a rota de cadastro que faltava
-app.get('/cadastro', (req, res) => res.render('cadastro'));
+app.get('/register', (req, res) => res.render('register'));
 
 // Usando as rotas de contato e proposta
 app.use('/contato', contatoRoutes);
