@@ -5,7 +5,10 @@ export const submitProposta = (req: Request, res: Response) => {
   const { nome, email, telefone, mensagem } = req.body;
 
   if (!nome || !email) {
-    res.status(400).send("Nome e email são obrigatórios.");
+    // CORREÇÃO: Renderiza a página novamente com uma mensagem de erro
+    res.render('proposta', {
+      errorMessage: 'Nome e e-mail são obrigatórios.'
+    });
     return;
   }
 
@@ -14,9 +17,16 @@ export const submitProposta = (req: Request, res: Response) => {
   db.run(sql, [nome, email, telefone, mensagem], function (err) {
     if (err) {
       console.error(err.message);
-      res.status(500).send("Erro ao enviar a proposta.");
+      // CORREÇÃO: Renderiza a página novamente com uma mensagem de erro
+      res.render('proposta', {
+        errorMessage: 'Ocorreu um erro ao enviar sua proposta. Tente novamente.'
+      });
       return;
     }
-    res.redirect('/');
+    
+    // CORREÇÃO: Renderiza a página novamente com uma mensagem de sucesso
+    res.render('proposta', {
+      successMessage: 'Proposta enviada com sucesso! Entraremos em contato em breve.'
+    });
   });
 };
