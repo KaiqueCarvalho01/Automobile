@@ -95,12 +95,15 @@ header ul li a:hover{
 
 .products img{
     height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .products .card:hover{
     transform: scale(1.05);
     transition: 0.5s;
     cursor: pointer;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -274,8 +277,6 @@ address{
     margin: 0; 
     position: relative;
 }
-
-
 
 /* Responsividade */
 /* Estilo para telas menores (dispositivos móveis e tablets) */
