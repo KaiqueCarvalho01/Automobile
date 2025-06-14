@@ -1,7 +1,6 @@
 import db from '../config/db';
 
 const createUserTable = () => {
-  // Adicionamos as colunas cpf e telefone
   const sql = `CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
