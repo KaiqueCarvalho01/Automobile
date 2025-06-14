@@ -20,32 +20,24 @@ export const loginUser = (req: Request, res: Response) => {
 
     if (isMatch) {
       const session = (req as any).session;
+      
+      const userSessionData = {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      };
+      session.user = userSessionData;
 
-      // **CORREÇÃO APRIMORADA**
-      // 1. Regenera a sessão para criar uma nova e limpa (mais seguro)
-      session.regenerate((err: any) => {
+      session.save((err: any) => {
         if (err) {
-          console.error('Erro ao regenerar a sessão:', err);
+          console.error('ERRO AO SALVAR A SESSÃO:', err);
           return res.render('login', { mensagemErro: 'Ocorreu um erro ao iniciar a sessão.' });
         }
-
-        // 2. Guarda os dados do usuário na nova sessão
-        const userSessionData = {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-        };
-        session.user = userSessionData;
-
-        // 3. Salva a sessão e só então redireciona
-        session.save((err: any) => {
-          if (err) {
-            console.error('Erro ao salvar a sessão:', err);
-            return res.render('login', { mensagemErro: 'Ocorreu um erro ao iniciar a sessão.' });
-          }
-          // Redireciona para a página inicial somente após a sessão ser salva
-          res.redirect('/');
-        });
+        
+        // ADICIONADO: Log de diagnóstico para confirmar os dados antes de redirecionar
+        console.log('[DEBUG] Sessão salva com sucesso. Redirecionando. Dados na sessão:', session.user);
+        
+        res.redirect('/');
       });
 
     } else {
