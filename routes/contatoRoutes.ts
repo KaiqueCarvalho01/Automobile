@@ -1,15 +1,14 @@
-// routes/contatoRoutes.js
-import express from 'express';
-import { mostrarFormularioContato, enviarFormularioContato } from '../controllers/contatoController';
+import { Router } from 'express';
+import { submitContato } from '../controllers/contatoController';
 
-const router = express.Router();
+const router = Router();
 
-// Rota para exibir o formulário de contato (GET)
-// Será acessível como GET /contato/ (quando montado no index.js)
-router.get('/', mostrarFormularioContato);
+// Esta rota vai renderizar a página do formulário
+router.get('/', (req, res) => {
+  res.render('contato');
+});
 
-// Rota para receber e processar os dados do formulário de contato (POST)
-// Será acessível como POST /contato/enviar (quando montado no index.js)
-router.post('/enviar', enviarFormularioContato);
+// Esta rota vai processar o envio do formulário
+router.post('/', submitContato);
 
-export default router; // Exporta o router
+export default router;

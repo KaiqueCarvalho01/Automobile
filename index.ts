@@ -4,13 +4,19 @@ import path from 'path';
 import session from 'express-session';
 import connectSqlite3 from 'connect-sqlite3';
 
-// Nossas rotas e modelos
+// Nossos modelos
 import db from './config/db';
 import createUserTable from './models/User';
 import createAutomobileTable from './models/Automobile';
+import createContatoTable from './models/Contato';
+import createPropostaTable from './models/Proposta';
+
+// Nossas rotas
 import userRoutes from './routes/userRoutes';
 import authRoutes from './routes/authRoutes';
 import automobileRoutes from './routes/automobileRoutes';
+import propostaRoutes from './routes/propostaRoutes';
+import contatoRoutes from './routes/contatoRoutes';
 
 // Carrega as variáveis de ambiente
 dotenv.config();
@@ -19,6 +25,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Configurando o EJS e os arquivos estáticos
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -27,57 +34,48 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configuração do Armazenamento de Sessão com SQLite
+// Configuração do Armazenamento de Sessão
 const SQLiteStore = connectSqlite3(session);
-
-// Configuração das Sessões
 app.use(session({
   store: new SQLiteStore({
-    db: 'sessions.sqlite', // Nome do arquivo do banco de dados de sessões
-    dir: './config',           // Diretório para salvar o banco
+    db: 'sessions.sqlite',
+    dir: './config', // Usando a pasta config que você já tem
     table: 'sessions'
-  }) as session.Store, 
-  secret: 'chave-secreta-muito-forte', 
+  }) as session.Store,
+  secret: 'sua-chave-secreta-muito-forte',
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24 // Duração do cookie 
-  }
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 
-// Middleware para expor informações da sessão para todas as views EJS
-app.use((req, res, next) => {
-  // A tipagem de 'req.session' pode não ter 'user', então usamos 'as any'
+// Middleware para expor informações da sessão para as views EJS
+app.use((req: Request, res: Response, next: NextFunction) => {
   res.locals.currentUser = (req as any).session.user || null;
   next();
 });
 
 // --- ROTAS DO SITE (PÁGINAS RENDERIZADAS) ---
-app.get('/', (req, res) => {
-  // Renderiza o arquivo views/index.ejs
-  res.render('index');
-});
+app.get('/', (req, res) => res.render('index'));
+app.get('/login', (req, res) => res.render('login'));
+app.get('/estoques', (req, res) => res.render('estoques'));
+// Adicionando a rota de cadastro que faltava
+app.get('/cadastro', (req, res) => res.render('cadastro'));
 
-app.get('/login', (req, res) => {
-  // Renderiza o arquivo views/login.ejs
-  res.render('login');
-});
-
-app.get('/estoques', (req, res) => {
-  // Renderiza o arquivo views/estoques.ejs
-  res.render('estoques');
-});
+// Usando as rotas de contato e proposta
+app.use('/contato', contatoRoutes);
+app.use('/proposta', propostaRoutes);
 
 // --- ROTAS DA API (QUE RETORNAM JSON) ---
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/automobiles', automobileRoutes);
 
-
-// Garante que as tabelas de dados sejam criadas na inicialização
+// Garante que TODAS as tabelas sejam criadas na inicialização
 db.serialize(() => {
   createUserTable();
   createAutomobileTable();
+  createContatoTable();
+  createPropostaTable();
 });
 
 // Inicia o servidor

@@ -1,14 +1,12 @@
-// routes/propostaRoutes.js
-import express from 'express';
-// Importando as funções nomeadas do controller
-import { mostrarFormularioProposta, enviarProposta } from '../controllers/propostaController';
+import { Router } from 'express';
+import { submitProposta } from '../controllers/propostaController';
 
-const router = express.Router();
+const router = Router();
 
-// GET / (será /proposta/ quando montado no index.js) -> chama a função mostrarFormularioProposta
-router.get('/', mostrarFormularioProposta);
+router.get('/', (req, res) => {
+  res.render('proposta'); 
+});
 
-// POST /enviar (será /proposta/enviar quando montado no index.js) -> chama a função enviarProposta
-router.post('/enviar', enviarProposta);
+router.post('/', submitProposta);
 
-export default router; // Exporta o router como padrão
+export default router;
