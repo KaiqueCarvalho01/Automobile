@@ -1,61 +1,50 @@
-<%- include('partials/header') %> 
-    <header id="header-contato">
-        <section id="contato-info">
-            <h1>CONTATO</h1>
-        </section>
-        <%- include('partials/navbar') %>
-    </header>
+<%- include('partials/header') %>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    
+   
+</head>
 
-    <footer>
-        <h2>FALE CONOSCO</h2>
-        <p>Dúvidas, críticas ou sugestões? Entre em contato conosco, preenchendo o formulário abaixo.</p>
-        
-        <section id="contato"> 
-              <h2>Contato</h2>
-              <%# Verifica se a variável mensagemSucesso foi passada pelo controller %>
-              <% if (typeof mensagemSucesso !== 'undefined' && mensagemSucesso) { %>
-                <div style="padding: 10px; margin-bottom: 15px; background-color: lightgreen; border: 1px solid green; color: darkgreen;">
-                  <%= mensagemSucesso %>
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-form-container">
+            <h2>Fale Conosco</h2>
+            <p class="lead">Dúvidas, críticas ou sugestões? Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
+            
+            <% if (locals.mensagemSucesso) { %>
+                <div class="alert alert-success"><%= mensagemSucesso %></div>
+            <% } %>
+            <% if (locals.mensagemErro) { %>
+                <div class="alert alert-danger"><%= mensagemErro %></div>
+            <% } %>
+    
+            <form action="/contato" method="POST" class="mt-4">
+                <div class="mb-3 input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome completo" required>
                 </div>
-              <% } %>
-
-              <%# Verifica se a variável mensagemErro foi passada pelo controller %>
-              <% if (typeof mensagemErro !== 'undefined' && mensagemErro) { %>
-                <div style="padding: 10px; margin-bottom: 15px; background-color: lightcoral; border: 1px solid red; color: darkred;">
-                  <%= mensagemErro %>
+                <div class="mb-3 input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Seu melhor e-mail" required>
                 </div>
-              <% } %>
-
-              <form action="/contato/enviar" id="form" method="POST">
-              <div class="mb-3">
-                  <label for="name" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="name" placeholder="nome" name="name" required>
-              </div>
-  
-              <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" required>
-              </div>
-
-              <div class="mb-3">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="telefone" placeholder="119XXXXYYYY" name="telefone" maxlength="11" required>
-              </div>
-  
-              <div class="mb-3">
-                <label for="message" class="form-label">Mensagem</label>
-                <textarea name="message" class="form-control" id="message" rows="3" name="message" required></textarea>
-              </div> 
-
-              <div class="col-12" style="text-align: center; margin-bottom: 15px;">
-                <button class="btn btn-primary" type="submit">Enviar</button>
-              </div>
+                <div class="mb-3 input-group">
+                    <i class="fas fa-phone"></i>
+                    <!-- ATUALIZADO: placeholder e o atributo 'required' -->
+                    <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                </div>
+                <div class="mb-4 input-group">
+                    <i class="fas fa-comment-dots" style="top: 25px;"></i>
+                    <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
             </form>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Adicionar algo como links 
-          <section id="social-media">
-            <p>Facebook</p>
-            <p>Instagram 2</p>
-        </section> -->
 <%- include('partials/footer') %>

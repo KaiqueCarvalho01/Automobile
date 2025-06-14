@@ -2,22 +2,28 @@ import { Request, Response } from 'express';
 import db from '../config/db';
 
 export const submitContato = (req: Request, res: Response) => {
-  const { nome, email, mensagem } = req.body;
 
-  if (!nome || !email || !mensagem) {
-    res.status(400).send("Todos os campos são obrigatórios.");
-    return;
+  const { nome, email, telefone, mensagem } = req.body;
+
+  if (!nome || !email || !telefone || !mensagem) {
+    return res.render('contato', {
+      mensagemErro: 'Todos os campos são obrigatórios.'
+    });
   }
 
-  const sql = `INSERT INTO contatos (nome, email, mensagem) VALUES (?, ?, ?)`;
+  const sql = `INSERT INTO contatos (nome, email, telefone, mensagem) VALUES (?, ?, ?, ?)`;
 
-  db.run(sql, [nome, email, mensagem], function (err) {
+  db.run(sql, [nome, email, telefone, mensagem], function (err) {
     if (err) {
       console.error(err.message);
-      res.status(500).send("Erro ao salvar a mensagem de contato.");
-      return;
+      return res.render('contato', {
+        mensagemErro: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente.'
+      });
     }
-    // Após o sucesso, redireciona o usuário para a página inicial 
-    res.redirect('/');
+    
+    // Renderiza a página novamente com uma mensagem de sucesso
+    res.render('contato', {
+      mensagemSucesso: 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
+    });
   });
 };
