@@ -49,13 +49,14 @@ export const loginUser = (req: Request, res: Response) => {
 // @desc    Fazer logout do usuário
 export const logoutUser = (req: Request, res: Response) => {
   const session = (req as any).session;
-  session.destroy((err: Error) => {
-    if (err) {
-      console.log("Erro ao fazer logout:", err);
-      return res.render('login', { mensagemErro: 'Ocorreu um erro ao sair.' });
-    }
-    
+  // Limpa o usuário da sessão
+  session.user = null;
+  // Guarda a mensagem de sucesso
+  session.mensagemSucesso = 'Você saiu da sua conta com sucesso.';
+
+  // Salva a sessão (agora sem usuário, mas com a mensagem) e redireciona
+  session.save(() => {
     res.clearCookie('connect.sid');
-    res.render('login', { mensagemSucesso: 'Você saiu da sua conta com sucesso.' });
+    res.redirect('/login');
   });
 };

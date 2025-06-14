@@ -4,6 +4,7 @@ import path from 'path';
 import session from 'express-session';
 import connectSqlite3 from 'connect-sqlite3';
 
+// Nossos modelos e rotas...
 import db from './config/db';
 import createUserTable from './models/User';
 import createAutomobileTable from './models/Automobile';
@@ -38,20 +39,26 @@ app.use(session({
   cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 
-// --- MIDDLEWARE DE DIAGNÓSTICO ---
-// Este middleware irá rodar em TODAS as requisições
+
+// Expõe o usuário e as mensagens flash para as views
 app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(`\n--- [DEBUG] Nova Requisição: ${req.method} ${req.path} ---`);
-  // Verifica se a sessão e o utilizador existem antes de os registar
-  if ((req as any).session && (req as any).session.user) {
-    console.log('[DEBUG] Dados encontrados na sessão (req.session.user):', (req as any).session.user);
-  } else {
-    console.log('[DEBUG] Nenhum utilizador encontrado na sessão.');
+  const session = (req as any).session;
+
+  // Passa o usuário logado
+  res.locals.currentUser = session.user || null;
+
+  // Passa e depois limpa a mensagem de sucesso
+  if (session.mensagemSucesso) {
+    res.locals.mensagemSucesso = session.mensagemSucesso;
+    delete session.mensagemSucesso;
   }
-  
-  res.locals.currentUser = (req as any).session.user || null;
-  console.log('[DEBUG] res.locals.currentUser foi definido como:', res.locals.currentUser);
-  console.log('----------------------------------------------------');
+
+  // Passa e depois limpa a mensagem de erro
+  if (session.mensagemErro) {
+    res.locals.mensagemErro = session.mensagemErro;
+    delete session.mensagemErro;
+  }
+
   next();
 });
 
@@ -68,7 +75,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/automobiles', automobileRoutes);
 
-// Inicialização do banco de dados
+// Inicialização do banco
 db.serialize(() => {
   createUserTable();
   createAutomobileTable();

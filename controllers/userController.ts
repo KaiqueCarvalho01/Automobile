@@ -34,7 +34,12 @@ export const registerUser = async (req: Request, res: Response) => {
       if (err) {
         return res.render('register', { mensagemErro: 'Erro ao criar o usuário.' });
       }
-      res.redirect('/login');
+      // Guarda a mensagem na sessão e só então redireciona
+      const session = (req as any).session;
+      session.mensagemSucesso = 'Cadastro realizado com sucesso! Por favor, faça o login.';
+      session.save(() => {
+            res.redirect('/login');
+      });
     });
   });
 };
