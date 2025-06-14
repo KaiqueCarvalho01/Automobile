@@ -21,7 +21,7 @@ export const loginUser = (req: Request, res: Response) => {
   db.get(sql, [email], async (err: Error | null, user: IUser) => {
     if (err) {
       res.status(500).json({ message: 'Erro no servidor' });
-      return ;
+      return;
     }
     if (!user) {
       res.status(400).json({ message: 'Credenciais inválidas' });
@@ -32,6 +32,17 @@ export const loginUser = (req: Request, res: Response) => {
     const isMatch = await bcrypt.compare(password, user.password as string);
 
     if (isMatch) {
+      // *** NOVA PARTE: CRIAR A SESSÃO DO USUÁRIO ***
+      // Guardamos na sessão o usuário sem a senha.
+      const userSessionData = {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      };
+      // A biblioteca express-session adiciona a propriedade 'session' ao objeto 'req'
+      (req as any).session.user = userSessionData;
+      
+      // Retornamos o JSON com o token, como antes.
       res.json({
         id: user.id,
         name: user.name,
