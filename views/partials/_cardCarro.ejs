@@ -1,0 +1,32 @@
+<div class="col-md-4 col-sm-6 mb-3">
+    <div class="card" data-bs-toggle="modal" data-bs-target="#<%= carro.id %>" style="cursor: pointer;">
+        <img src="<%= carro.imagem %>" class="card-img-top" alt="<%= carro.alt %>">
+        <div class="card-body">
+            <p class="card-text"><%= carro.nome %></p>
+            <p><%= carro.info %></p>
+            <p><%= carro.preco %></p>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="<%= carro.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="<%= carro.id %>Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="<%= carro.id %>Label"><%= carro.nome %></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Detalhes do carro:</p>
+                <ul>
+                    <li>Ano/KM: <%= carro.info %></li>
+                    <li>Preço: <%= carro.preco %></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <a href="/proposta"><button type="button" class="btn btn-primary">Proposta</button></a>
+            </div>
+        </div>
+    </div>
+</div>

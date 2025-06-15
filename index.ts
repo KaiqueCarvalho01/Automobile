@@ -15,6 +15,7 @@ import authRoutes from './routes/authRoutes';
 import automobileRoutes from './routes/automobileRoutes';
 import propostaRoutes from './routes/propostaRoutes';
 import contatoRoutes from './routes/contatoRoutes';
+import indexRouter from './routes/index';
 
 dotenv.config();
 const app = express();
@@ -63,12 +64,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 // --- ROTAS DO SITE ---
-app.get('/', (req, res) => res.render('index'));
 app.get('/login', (req, res) => res.render('login'));
-app.get('/estoques', (req, res) => res.render('estoques'));
 app.get('/register', (req, res) => res.render('register'));
 app.use('/contato', contatoRoutes);
 app.use('/proposta', propostaRoutes);
+app.use('/', indexRouter); 
 
 // --- ROTAS DA API ---
 app.use('/api/users', userRoutes);
