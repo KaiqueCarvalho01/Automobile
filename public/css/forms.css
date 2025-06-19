@@ -1,0 +1,77 @@
+
+        :root {
+            --primary-color: #0d6efd;
+            --light-grey: #495057;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+
+        .contact-form-container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin: auto;
+        }
+
+        .contact-form-container h2 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .contact-form-container p.lead {
+            text-align: center;
+            color: #adb5bd;
+            margin-bottom: 30px;
+        }
+
+        .input-group { position: relative; }
+        
+        .form-control, .form-control:focus {
+            background-color: var(--light-grey);
+            border: 1px solid transparent;
+            color: #fff;
+            border-radius: 10px;
+            padding: 12px 12px 12px 45px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control::placeholder { color: #adb5bd; }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        .input-group .fas {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #adb5bd;
+            z-index: 10;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+        }
+        
+        .alert { border-radius: 10px; }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Automobile</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Cadastre-se</h2>
+        
+        <% if (locals.mensagemErro) { %>
+            <div class="alert alert-danger"><%= mensagemErro %></div>
+        <% } %>
+
+        <form action="/api/users" method="POST" class="mt-4">
+            <div class="mb-3 input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nome Completo" required>
+            </div>
+            <div class="mb-3 input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required>
+            </div>
+            <div class="mb-3 input-group">
+                <i class="fas fa-id-card"></i>
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF (opcional)">
+            </div>
+            <div class="mb-3 input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone (opcional)">
+            </div>
+            <div class="mb-3 input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Crie uma senha" required>
+            </div>
+            <div class="mb-4 input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirme a senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        </form>
+
+        <p class="mt-4 text-center form-text-link">Já tem uma conta? <a href="/login" class="text-warning fw-bold">Faça Login</a></p>
+        <div class="text-center mt-3">
+            <a href="/" class="text-white-50 text-decoration-none" style="font-size: 0.9em;">
+                <i class="fas fa-arrow-left me-1"></i> Voltar ao início
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

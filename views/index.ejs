@@ -1,0 +1,75 @@
+ <!--Kaique Carvalho-->
+ <!--Rogerio Rodrigues-->
+<%- include('partials/header') %> 
+    <header>
+        <section id="info">
+            <h1>Automobile</h1>
+            <p>Carros exclusivos para quem busca luxo, desempenho e sofisticação. Descubra nossa seleção de esportivos, supercarros e hypercars das marcas mais desejadas do mundo. 
+              Potência, design e tecnologia de ponta em um só lugar. Seu próximo carro dos sonhos está aqui!</p>
+              <script>
+                // Função para alterar o conteúdo com base na largura da tela
+                function changeContentBasedOnScreenSize() {
+                    const paragraph = document.querySelector('#info p');
+                    
+                    if (window.innerWidth <= 768) {
+                        paragraph.textContent = "Carros Exclusivos para quem busca luxo, desempenho e sofisticação. Descubra nossa coleção !"; // Altera o conteúdo
+                    } else {
+                        paragraph.textContent = "Carros exclusivos para quem busca luxo, desempenho e sofisticação. Descubra nossa seleção de esportivos, supercarros e hypercars das marcas mais desejadas do mundo. Potência, design e tecnologia de ponta em um só lugar. Seu próximo carro dos sonhos está aqui!"; // Restaura o conteúdo
+                    }
+                }
+            
+                // Chama a função sempre que a tela for redimensionada
+                window.addEventListener('resize', changeContentBasedOnScreenSize);
+            
+                // Chama a função na carga da página
+                window.addEventListener('load', changeContentBasedOnScreenSize);
+              </script>
+        </section>
+      
+        <%- include('partials/navbar') %>
+ </header>
+
+    <main> 
+
+    <section class="category-products">
+        <div class="destaques">
+          <h2>ÚLTIMOS DESTAQUES</h2>
+        </div>
+
+     <section class="category-products">      
+        <div class="products">
+            <div class="container">
+                <div class="row">
+                    
+                    <% if (typeof carros !== 'undefined' && carros.length > 0) { %>
+                        <% carros.forEach(carro => { %>
+
+                            <%- include('partials/_cardCarro', {carro: carro}) %>
+
+                        <% }) %>
+                    <% } else { %>
+                        <div class="col-12">
+                            <p class="text-center">Nenhum veículo em destaque no momento.</p>
+                        </div>
+                    <% } %>
+                </div> 
+            </div> 
+        </div> 
+     </section>
+    </section>
+    
+        <article id="descricao">
+          <div class="card text-bg-dark" >
+            <img src="./img/products/ferrari-about.jpg" class="card-img" alt="imagem-ferrari-sobre" >
+            <div class="card-img-overlay" >
+              <h3 class="card-title">SOBRE OS CARROS</h3>
+              <p class="card-text">Os carros são veículos essenciais no mundo moderno, proporcionando liberdade e conforto para viagens diárias e longas distâncias. Seja um modelo compacto ou um veículo de luxo, eles atendem a diversas necessidades de transporte.</p>
+              <p>Com inovações tecnológicas a cada ano, os carros se tornam mais eficientes, econômicos e seguros, permitindo uma experiência de direção melhor para todos.</p>
+              <p>Nossa seleção de veículos exclusivos reúne o que há de mais avançado em engenharia automotiva, design e inovação. Trabalhamos com marcas icônicas e modelos de alto desempenho, incluindo esportivos, supercarros e hypercars, projetados para oferecer máxima performance, 
+                tecnologia de ponta e um nível inigualável de luxo. Cada detalhe é pensado para proporcionar uma experiência única ao volante, combinando potência, aerodinâmica e materiais de última geração. Se você busca exclusividade e excelência, encontrou o lugar certo.</p>
+            </div>
+          </div> 
+        </article>
+    </main>
+
+    <%- include('partials/footer') %>

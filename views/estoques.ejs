@@ -1,0 +1,37 @@
+<%- include('partials/header') %> 
+    <header id="header-estoque">
+        <section id="estoque-info">
+            <h1>ESTOQUE</h1>
+        </section>
+        
+        <%- include('partials/navbar') %>
+
+    </header>
+    
+    <main>
+        <section class="category-products">
+            <div class="destaques">
+                <h2>NOSSOS CARROS</h2>
+            </div>
+        <div class="products">
+            <div class="container">
+                <div class="row">
+                    
+                    <% if (typeof carros !== 'undefined' && carros.length > 0) { %>
+                        <% carros.forEach(carro => { %>
+
+                            <%- include('partials/_cardCarro', {carro: carro}) %>
+
+                        <% }) %>
+                    <% } else { %>
+                        <div class="col-12">
+                            <p class="text-center">Nenhum veículo em destaque no momento.</p>
+                        </div>
+                    <% } %>
+                </div> 
+            </div> 
+        </div> 
+        </section>
+        </section>
+    </main>
+<%- include('partials/footer') %>

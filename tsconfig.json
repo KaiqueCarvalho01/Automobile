@@ -1,0 +1,19 @@
+{
+"compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs", 
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "**/*.ts"                             /* Inclui todos os arquivos .ts do projeto na compilação */
+  ],
+  "exclude": [
+    "node_modules"                        /* Exclui a pasta node_modules */
+  ]
+}
