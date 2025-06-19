@@ -7,12 +7,10 @@ import connectSqlite3 from 'connect-sqlite3';
 // Nossos modelos e rotas...
 import db from './config/db';
 import createUserTable from './models/User';
-import createAutomobileTable from './models/Automobile';
 import createContatoTable from './models/Contato';
 import createPropostaTable from './models/Proposta';
 import userRoutes from './routes/userRoutes';
 import authRoutes from './routes/authRoutes';
-import automobileRoutes from './routes/automobileRoutes';
 import propostaRoutes from './routes/propostaRoutes';
 import contatoRoutes from './routes/contatoRoutes';
 import indexRouter from './routes/index';
@@ -34,7 +32,7 @@ app.use(session({
     dir: './config',
     table: 'sessions'
   }) as session.Store,
-  secret: 'sua-chave-secreta-muito-forte',
+  secret: 'chave-ultra-secreta',
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 }
@@ -73,12 +71,10 @@ app.use('/', indexRouter);
 // --- ROTAS DA API ---
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/automobiles', automobileRoutes);
 
 // Inicialização do banco
 db.serialize(() => {
   createUserTable();
-  createAutomobileTable();
   createContatoTable();
   createPropostaTable();
 });

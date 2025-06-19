@@ -92,7 +92,9 @@ header ul li a:hover{
     margin: 2%;
 }
 
-
+.products .card{
+    border-color: rgb(172, 171, 171);
+}
 .products img{
     height: 250px;
     border-radius: 5px;
