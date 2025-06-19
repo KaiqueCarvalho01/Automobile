@@ -1,6 +1,6 @@
 # 🚗 Automobile
 
-Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**. A aplicação utiliza tecnologias como Node.js, Express.js, EJS, SQLite3, HTML, CSS, JavaScript e Bootstrap para oferecer uma interface interativa e funcional.
+Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**. A aplicação utiliza tecnologias como Node.js, Express, EJS, SQLite3 e Bootstrap para oferecer uma interface interativa e funcional.
 
 ## 🔧 Tecnologias Utilizadas
 
@@ -8,19 +8,17 @@ Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. 
 * **Template Engine:** EJS (Embedded JavaScript templates)
 * **Manipulação de Dados de Formulário:** Body-parser
 * **Banco de Dados:** SQLite3
-* **Frontend:** HTML5, CSS3 (com Bootstrap), JavaScript
-* **Gerenciador de Pacotes:** NPM
+* **Frontend:** HTML5, CSS3 + Bootstrap, JavaScript
+* **Gerenciador de Pacotes:** npm
 * **Desenvolvimento:** Nodemon para recarregamento automático do servidor.
 
 ---
 
 ## Pré-requisitos 📋
 Antes de começar, certifique-se de ter instalado em sua máquina:
-* Node.js (versão v22.15.0)
-```
-node -v
-```
-* NPM (geralmente instalado com o Node.js)
+- [ ] **Node.js** (v22.x ou superior)  
+- [ ] **npm** (geralmente já vem com o Node.js)  
+- [ ] (Opcional) **Visual Studio Code** ou outro editor de sua preferência  
 
 ---
 
@@ -47,32 +45,45 @@ npm install
 ---
 ## 🚀 Como Rodar o Projeto
 
-Para visualizar corretamente o site, é necessário rodá-lo em um **servidor local**, pois algumas funcionalidades em JavaScript e o roteamento entre páginas podem não funcionar abrindo os arquivos diretamente no navegador.
+Para visualizar corretamente o site, é necessário rodá-lo em um **servidor local**, pois as funcionalidades e o roteamento entre páginas podem não irão funcionar abrindo os arquivos diretamente no navegador.
 
 Nesse caso, para iniciar o servidor, utilize o seguinte comando no terminal, a partir da raiz do projeto:
 ```bash
-node index.js
+npm run dev
 ```
-Após o servidor ser iniciado com sucesso, abra seu navegador de preferência e acesse http://localhost:3000
+Após o servidor ser iniciado com sucesso, abra seu navegador de preferência e acesse:
+```bash
+http://localhost:5000
+```
 
 
 ## 📦 Requisitos
 
-- Editor de código recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+- Editor de código recomendado: Visual Studio Code
+
+- Navegador: Chrome, Firefox, Edge ou similar compatível com JavaScript
+
+- Permissões: A aplicação cria/atualiza o arquivo SQLite automaticamente na pasta config/ — verifique permissões de escrita
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-* `controllers/`: Lógica de controle das rotas
+```
+Automobile/
+│
+├── config/             # Configurações da aplicação (ex.: acesso ao DB)
+├── controllers/        # Lógica de controle das rotas
+├── node_modules/       # Dependências instaladas
+├── public/             # Arquivos estáticos (CSS, imagens, JS)
+├── routes/             # Definição das rotas da aplicação
+├── views/              # Templates EJS
+├── index.js            # Arquivo principal (servidor Express)
+├── package.json        # Metadados e scripts do projeto
+├── package-lock.json   # Versões fixas das dependências
+└── README.md           # Documentação principal
+```
 
-* `routes/`: Definição das rotas da aplicação
-
-* `views/`: Arquivos EJS para renderização das páginas
-
-* `public/`: Arquivos estáticos (CSS, JavaScript)
-
-* `config/`: Configurações do banco de dados e do servidor
 
 ---
 
