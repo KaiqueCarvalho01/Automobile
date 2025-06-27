@@ -72,7 +72,6 @@ export const registerUser = async (req: Request, res: Response) => {
 };
 
 
-// A função getMe permanece a mesma para a API
 export const getMe = (req: AuthRequest, res: Response) => {
     const user = (req as any).user;
     if (user) {

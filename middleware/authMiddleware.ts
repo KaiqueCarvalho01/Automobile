@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import db from '../config/db';
 import { IUser } from '../interfaces/User.interface';
 
-// Estendendo a interface Request do Express para incluir nossa propriedade 'user'
+// Estendendo a interface Request do Express para incluir propriedade 'user'
 export interface AuthRequest extends Request {
   user?: IUser;
 }
