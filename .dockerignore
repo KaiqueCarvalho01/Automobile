@@ -1,0 +1,22 @@
+# Arquivo: .dockerignore
+
+# Ignorar dependências locais, elas serão instaladas dentro do container
+node_modules
+
+# Ignorar o diretório de build do TypeScript, ele será gerado dentro do container
+dist
+
+# Arquivos de log do npm
+npm-debug.log
+
+# Arquivos de ambiente locais (nunca devem ir para o container)
+.env
+
+# Arquivos do próprio Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Arquivos do Git
+.git
+.gitignore
