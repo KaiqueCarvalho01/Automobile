@@ -18,7 +18,10 @@ Este é um projeto desenvolvido por **Kaique Carvalho** e **Rogério de Lima** p
 Antes de começar, certifique-se de ter instalado em sua máquina:
 - [ ] **Node.js** (v22.x ou superior)  
 - [ ] **npm** (geralmente já vem com o Node.js)  
-- [ ] (Opcional) **Visual Studio Code** ou outro editor de sua preferência  
+- [ ] (Opcional) **Visual Studio Code** ou outro editor de sua preferência
+- [ ] Navegador: Chrome, Firefox, Edge ou similar compatível com JavaScript
+- [ ] Permissões: A aplicação cria/atualiza o arquivo SQLite automaticamente na pasta config/ — verifique permissões de escrita
+
 
 ---
 
@@ -43,9 +46,9 @@ npm install
 ```
 
 ---
-## 🚀 Como Rodar o Projeto
+## 🚀 Como Rodar o Projeto com Node
 
-Para visualizar corretamente o site, é necessário rodá-lo em um **servidor local**, pois as funcionalidades e o roteamento entre páginas podem não irão funcionar abrindo os arquivos diretamente no navegador.
+Para visualizar corretamente o site, é necessário rodá-lo em um **servidor local**, pois as funcionalidades e o roteamento entre páginas não funcionarão corretamente se você abrir os arquivos diretamente no navegador.
 
 Nesse caso, para iniciar o servidor, utilize o seguinte comando no terminal, a partir da raiz do projeto:
 ```bash
@@ -56,14 +59,33 @@ Após o servidor ser iniciado com sucesso, abra seu navegador de preferência e 
 http://localhost:5000
 ```
 
+---
+## 🖥️Executando o Projeto com Docker
+Este projeto possui suporte completo a Docker, o que significa que você pode executá-lo com apenas alguns comandos, sem precisar instalar Node.js ou qualquer outra dependência diretamente na sua máquina (apenas o Docker).
 
-## 📦 Requisitos
+## Pré-requisitos para o Docker📋
 
-- Editor de código recomendado: Visual Studio Code
+- [ ] **DOCKER**: É necessário ter o Docker e o Docker Compose (geralmente incluído no Docker Desktop) instalados na sua máquina.
 
-- Navegador: Chrome, Firefox, Edge ou similar compatível com JavaScript
+Passos para Execução
 
-- Permissões: A aplicação cria/atualiza o arquivo SQLite automaticamente na pasta config/ — verifique permissões de escrita
+1. Clone o repositório
+
+2. Construa e Inicie os Containers
+Na raiz do projeto (onde o arquivo docker-compose.yml está localizado), execute o seguinte comando:
+```bash
+docker compose up --build
+```
+
+3. Acesse a Aplicação
+Após o processo de build ser concluído e você ver os logs do servidor indicando que ele está rodando (ex: ✅ Servidor Híbrido rodando na porta 5000), abra seu navegador e acesse:
+```bash
+➡️ http://localhost:5001
+```
+
+**Nota*: A aplicação roda na porta 5000 dentro do container, mas a expomos na porta 5001 no seu computador para evitar conflitos com outros serviços que possam estar usando a porta 5000 localmente.
+
+
 
 ---
 
