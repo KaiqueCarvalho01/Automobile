@@ -9,7 +9,7 @@ dist
 # Arquivos de log do npm
 npm-debug.log
 
-# Arquivos de ambiente locais (nunca devem ir para o container)
+
 .env
 
 # Arquivos do próprio Docker
