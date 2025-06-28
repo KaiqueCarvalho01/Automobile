@@ -67,20 +67,18 @@ Este projeto possui suporte completo a Docker, o que significa que você pode ex
 
 - [ ] **DOCKER**: É necessário ter o Docker e o Docker Compose (geralmente incluído no Docker Desktop) instalados na sua máquina.
 
-Passos para Execução
+### Passos para Execução
 
-1. Clone o repositório
-
-2. Construa e Inicie os Containers
-Na raiz do projeto (onde o arquivo docker-compose.yml está localizado), execute o seguinte comando:
+1. Construa e Inicie os Containers
+Na raiz do projeto execute o seguinte comando:
 ```bash
 docker compose up --build
 ```
 
-3. Acesse a Aplicação
-Após o processo de build ser concluído e você ver os logs do servidor indicando que ele está rodando (ex: ✅ Servidor Híbrido rodando na porta 5000), abra seu navegador e acesse:
+2. Acesse a Aplicação
+Após o processo de build ser concluído e você ver os logs do servidor indicando que ele está rodando, abra seu navegador e acesse:
 ```bash
-➡️ http://localhost:5001
+http://localhost:5001
 ```
 
 **Nota*: A aplicação roda na porta 5000 dentro do container, mas a expomos na porta 5001 no seu computador para evitar conflitos com outros serviços que possam estar usando a porta 5000 localmente.
