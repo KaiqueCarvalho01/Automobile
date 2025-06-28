@@ -1,0 +1,35 @@
+# Ignorar arquivos e diretórios comuns em projetos Node.js
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diretório de dependências
+node_modules
+
+# Diretório de build do TypeScript
+dist
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos de banco de dados SQLite
+*.sql
+*.sqlite
+*.sqlite3
+sessions.sqlite  # Ignora o arquivo de sessão especificamente
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração de editores
+.vscode/

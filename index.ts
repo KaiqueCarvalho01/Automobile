@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import connectSqlite3 from 'connect-sqlite3';
+import compression from 'compression';
 
 // Nossos modelos e rotas...
 import db from './config/db';
@@ -17,11 +18,19 @@ import indexRouter from './routes/index';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+// Lê a porta INTERNA que o servidor deve escutar
+const INTERNAL_PORT = process.env.INTERNAL_PORT || 5000;
+
+// Lê a porta PÚBLICA para exibir no link de acesso
+// Se não for definida, usa a interna como padrão
+const PUBLIC_PORT = process.env.PUBLIC_PORT || INTERNAL_PORT;
+
+app.use(compression());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
+const umDiaEmMs = 1000 * 60 * 60 * 24;
+app.use(express.static(path.join(__dirname, 'public'),{ maxAge: umDiaEmMs }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -80,7 +89,10 @@ db.serialize(() => {
 });
 
 // Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`✅ Servidor Híbrido rodando na porta ${PORT}`);
-  console.log(`Acesse o site em: http://localhost:${PORT}`);
+app.listen(Number(INTERNAL_PORT), () => {
+  // O log do servidor ainda informa a porta interna real que ele está usando
+  console.log(`✅ Servidor Híbrido rodando na porta ${INTERNAL_PORT}`);
+  
+  // O log para o usuário agora mostra a porta pública correta
+  console.log(`Acesse o site em: http://localhost:${PUBLIC_PORT}`);
 });

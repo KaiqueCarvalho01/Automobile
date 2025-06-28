@@ -1,6 +1,4 @@
 # Arquivo: docker-compose.yml
-version: "3.8"
-
 services:
   app:
     # Constrói a imagem usando o Dockerfile no diretório atual
@@ -11,12 +9,12 @@ services:
 
     # Mapeia a porta 5000 do seu computador para a 5000 do container
     ports:
-      - "5001:5000"
+      - "${PUBLIC_PORT}:${INTERNAL_PORT}"
 
-    # Define variáveis de ambiente para o container
-    environment:
-      - PORT=5000
-
+    # Esta diretiva carrega todas as variáveis do .env para dentro do container
+    env_file:
+      - .env
+      
     # Cria e anexa um volume para persistir os dados da sessão do SQLite.
     volumes:
       - session_data:/usr/src/app/config

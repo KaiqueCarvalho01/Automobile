@@ -21,6 +21,7 @@
   "homepage": "https://github.com/KaiqueCarvalho01/Automobile#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "compression": "^1.8.0",
     "connect-sqlite3": "^0.9.15",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/compression": "^1.8.1",
     "@types/connect-sqlite3": "^0.9.5",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
