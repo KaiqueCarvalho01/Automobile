@@ -1,6 +1,6 @@
 # 🚗 Automobile
 
-Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**. A aplicação utiliza tecnologias como Node.js, Express, EJS, SQLite3 e Bootstrap para oferecer uma interface interativa e funcional.
+Este é um projeto desenvolvido por **Kaique Carvalho** e **Rogério de Lima** para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**. A aplicação utiliza tecnologias como Node.js, Express, EJS, SQLite3 e Bootstrap para oferecer uma interface interativa e funcional.
 
 ## 🔧 Tecnologias Utilizadas
 
