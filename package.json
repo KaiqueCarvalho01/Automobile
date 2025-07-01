@@ -2,10 +2,10 @@
   "name": "automobile",
   "version": "1.0.0",
   "description": "Este é um projeto desenvolvido para a disciplina **Programação de Scripts**. O nosso objetivo é apresentar um site com páginas relacionadas ao tema **venda de automóveis**, utilizando tecnologias como **HTML**, **CSS**, **JavaScript** e **Bootstrap**.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "npx tsc",
+    "build": "tsc && copyfiles -u 1 views/**/*.ejs dist/views && copyfiles -u 1 public/**/* dist/public",
     "dev": "nodemon --exec ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -41,6 +41,7 @@
     "@types/mongoose": "^5.11.96",
     "@types/node": "^24.0.1",
     "@types/sqlite3": "^3.1.11",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
