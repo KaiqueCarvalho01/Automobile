@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import db from '../config/db';
 import { IUser } from '../interfaces/User.interface';
 import { AuthRequest } from '../middleware/authMiddleware';
+import { cpf as cpfValidator } from 'cpf-cnpj-validator';
 
 export const registerUser = async (req: Request, res: Response) => {
   const { name, email, cpf, telefone, password, confirmPassword } = req.body;
@@ -29,6 +30,11 @@ export const registerUser = async (req: Request, res: Response) => {
     // Regex simples que aceita 11 dígitos, com ou sem pontuação.
     const cpfRegex = /^(\d{3}\.?\d{3}\.?\d{3}-?\d{2}|\d{11})$/;
     if (!cpfRegex.test(cpf)) {
+      return res.render('register', { mensagemErro: 'Formato de CPF inválido.' });
+    }
+  }
+  if (cpf && cpf.trim() !== '') {
+    if (!cpfValidator.isValid(cpf)) {
       return res.render('register', { mensagemErro: 'Formato de CPF inválido.' });
     }
   }
