@@ -27,10 +27,10 @@ const PUBLIC_PORT = process.env.PUBLIC_PORT || INTERNAL_PORT;
 
 app.use(compression());
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(process.cwd(), 'views'));
 app.set('view engine', 'ejs');
 const umDiaEmMs = 1000 * 60 * 60 * 24;
-app.use(express.static(path.join(__dirname, 'public'),{ maxAge: umDiaEmMs }));
+app.use(express.static(path.join(process.cwd(), 'public'),{ maxAge: umDiaEmMs }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

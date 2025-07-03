@@ -35,8 +35,8 @@ RUN npm ci --only=production
 COPY --from=builder /usr/src/app/dist ./dist
 
 # Copia a pasta public e as views para a imagem final
-COPY --from=builder /usr/src/app/public ./dist/public
-COPY --from=builder /usr/src/app/views ./dist/views
+COPY --from=builder /usr/src/app/views ./views
+COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/config ./config
 
 # Expõe a porta que a aplicação usa (definida no seu index.ts como 5000)
