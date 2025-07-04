@@ -1,5 +1,3 @@
-# Arquivo: Dockerfile
-
 # --- Estágio 1: Build ---
 # Usamos uma imagem base do Node.js para construir nossa aplicação
 FROM node:20-alpine AS builder
@@ -39,7 +37,7 @@ COPY --from=builder /usr/src/app/views ./views
 COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/config ./config
 
-# Expõe a porta que a aplicação usa (definida no seu index.ts como 5000)
+# Expõe a porta que a aplicação usa, definida no index.ts como 5000
 EXPOSE 5000
 
 # O comando para iniciar a aplicação quando o container for executado
